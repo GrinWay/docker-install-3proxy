@@ -6,6 +6,12 @@
     state: present
   when: ansible_os_family == 'Debian'
 
+- name: Install make
+  apt:
+    name: make
+    state: present
+  when: ansible_os_family == 'Debian'
+
 - name: Create 3proxy user
   user:
     name: 3proxy
@@ -17,6 +23,7 @@
     curl -L -o /tmp/3proxy.tar.gz https://github.com/z3APA3A/3proxy/archive/refs/tags/0.9.5.tar.gz
   args:
     creates: /tmp/3proxy.tar.gz
+
 
 - name: Extract 3proxy source
   unarchive:
