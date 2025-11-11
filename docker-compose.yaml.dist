@@ -4,16 +4,16 @@ services:
     build:
       context: .
       args:
-        VPN_LOGIN: ''     # CONFIGURE
-        VPN_PASSWORD: ''  # CONFIGURE
-        VPN_PORT: '30080' # CONFIGURE
+        VPN_LOGIN: ''     # CONFIGURE (Imagine your own vpn login)
+        VPN_PASSWORD: ''  # CONFIGURE (Imagine your own vpn password)
+        VPN_PORT: '30080' # CONFIGURE (Imagine your own vpn port)
         ANSIBLE_INVENTORY_HOSTS: |
           all:
             hosts:
               server_1:
-                ansible_host: ''     # CONFIGURE
-                ansible_user: 'root' # CONFIGURE
-                ansible_password: '' # CONFIGURE
+                ansible_host: ''     # CONFIGURE (Your existing server host)
+                ansible_user: 'root' # CONFIGURE (Your existing server user)
+                ansible_password: '' # CONFIGURE (Your existing server password)
         ANSIBLE_CONFIG: |
           [defaults]
             inventory = /ansible/3proxy/inventory/hosts.yml
