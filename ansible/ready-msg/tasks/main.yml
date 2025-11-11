@@ -1,5 +1,0 @@
----
-
-- name: 'READY!'
-  debug:
-    msg: 'READY!'

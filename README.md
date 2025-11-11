@@ -20,5 +20,10 @@ In the root dir of this app open the terminal and execute:
 docker compose down && docker compose up --build
 ```
 
-Wait to see "READY!" and it's done.
+Wait to see:
+```cmd
+docker-install-3proxy exited with code 0
+```
+
+And it's done.
 You can close the terminal and use your new proxy.

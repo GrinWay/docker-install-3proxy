@@ -7,4 +7,3 @@
   - role: 'install-3proxy'
   - role: 'configure-3proxy'
   - role: 'systemd-3proxy'
-  - role: 'ready-msg'
