@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM debian:bookworm-slim
 
 # === 1. Аргументы, приходящие из docker-compose.yaml ===
 ARG ANSIBLE_INVENTORY_HOSTS
@@ -12,8 +12,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     sshpass \
     python3-jmespath \
-    ansible \
-    && rm -rf /var/lib/apt/lists/*
+    ansible
 
 WORKDIR /ansible/3proxy
 

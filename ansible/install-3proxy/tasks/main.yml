@@ -13,9 +13,10 @@
     system: yes
 
 - name: Download 3proxy source
-  get_url:
-    url: "https://github.com/z3APA3A/3proxy/archive/refs/tags/0.9.5.tar.gz"
-    dest: /tmp/3proxy.tar.gz
+  ansible.builtin.shell: >
+    curl -L -o /tmp/3proxy.tar.gz https://github.com/z3APA3A/3proxy/archive/refs/tags/0.9.5.tar.gz
+  args:
+    creates: /tmp/3proxy.tar.gz
 
 - name: Extract 3proxy source
   unarchive:
