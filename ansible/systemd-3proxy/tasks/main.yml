@@ -1,0 +1,25 @@
+---
+- name: Create systemd service
+  copy:
+    dest: /etc/systemd/system/3proxy.service
+    content: |
+      [Unit]
+      Description=3proxy Proxy Server
+      After=network.target
+
+      [Service]
+      Type=simple
+      ExecStart=/usr/local/bin/3proxy /etc/3proxy/3proxy.cfg
+      Restart=always
+      User=3proxy
+
+      [Install]
+      WantedBy=multi-user.target
+  notify:
+    - restart 3proxy
+
+- name: Enable and start service
+  systemd:
+    name: 3proxy
+    enabled: yes
+    state: started

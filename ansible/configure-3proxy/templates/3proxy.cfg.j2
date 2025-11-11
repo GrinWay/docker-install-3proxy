@@ -1,0 +1,20 @@
+#!/bin/3proxy
+#daemon
+#chroot /usr/local/3proxy proxy proxy
+#include /conf/3proxy.cfg
+
+internal {{ ansible_host }}
+external {{ ansible_host }}
+nscache 65536
+nserver 8.8.8.8
+
+log /var/log/3proxy/log D
+logformat "%%H%M%S %C:%c %R:%r %h %T"
+rotate 10
+
+users {{ vpn_login }}:CL:{{ vpn_password }}
+auth strong
+allow vpn *
+deny *
+proxy -p{{ vpn_port }}
+flush

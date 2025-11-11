@@ -1,0 +1,10 @@
+---
+- name: Install and configure 3proxy
+  hosts: all
+  become: yes
+  roles:
+  - role: 'update'
+  - role: 'install-3proxy'
+  - role: 'configure-3proxy'
+  - role: 'systemd-3proxy'
+  - role: 'ready-msg'

@@ -1,0 +1,20 @@
+services:
+  3proxy:
+    container_name: docker-install-3proxy
+    build:
+      context: .
+      args:
+        VPN_LOGIN: ''     # CONFIGURE
+        VPN_PASSWORD: ''  # CONFIGURE
+        VPN_PORT: '30080' # CONFIGURE
+        ANSIBLE_INVENTORY_HOSTS: |
+          all:
+            hosts:
+              server_1:
+                ansible_host: ''     # CONFIGURE
+                ansible_user: 'root' # CONFIGURE
+                ansible_password: '' # CONFIGURE
+        ANSIBLE_CONFIG: |
+          [defaults]
+            inventory = /ansible/3proxy/inventory/hosts.yml
+            host_key_checking = false

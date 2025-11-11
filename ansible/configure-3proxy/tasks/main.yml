@@ -1,0 +1,10 @@
+---
+- name: Deploy config
+  template:
+    src: 3proxy.cfg.j2
+    dest: /etc/3proxy/3proxy.cfg
+    owner: 3proxy
+    group: 3proxy
+    mode: '0644'
+  notify:
+    - restart 3proxy
