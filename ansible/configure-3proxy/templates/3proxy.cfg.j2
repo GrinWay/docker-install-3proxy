@@ -14,7 +14,7 @@ rotate 10
 
 users {{ vpn_login }}:CL:{{ vpn_password }}
 auth strong
-allow vpn *
+allow {{ vpn_login }} *
 deny *
 proxy -p{{ vpn_port }}
 flush
