@@ -10,9 +10,9 @@ ARG VPN_PORT
 # === 2. Базовая настройка окружения ===
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
-    ansible \
-    python3-jmespath \
     sshpass \
+    python3-jmespath \
+    ansible \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /ansible/3proxy
